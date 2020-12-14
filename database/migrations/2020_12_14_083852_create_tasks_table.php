@@ -15,6 +15,7 @@ class CreateTasksTable extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('section_id');
             $table->string('name');
             $table->text('description');
             $table->boolean('is_done');
