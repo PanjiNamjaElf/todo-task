@@ -1,0 +1,14 @@
+body {
+    &.loading {
+        visibility: hidden;
+        opacity: 0;
+    }
+}
+
+label {
+    font-weight: $label-font-weight;
+}
+
+button:focus {
+    outline: none;
+}
