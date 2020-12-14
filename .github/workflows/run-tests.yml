@@ -63,7 +63,7 @@ jobs:
         run: composer install --prefer-dist --no-interaction --no-progress
 
       - name: Copy .env
-        run: php -r "file_exists('.env') || copy('.env.dist', '.env');"
+        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
 
       - name: Generate key
         run: php artisan key:generate
