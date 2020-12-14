@@ -55,7 +55,7 @@ jobs:
           coverage: none
 
       - name: Setup node.js environment
-        uses: actions/setup-node@v1.4.2
+        uses: actions/setup-node@v2.1.3
         with:
           node-version: ${{ matrix.node }}
 
