@@ -26,7 +26,7 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <a class="dropdown-item" href="{{ route('section.edit', $section) }}">Edit</a>
-                                <a class="dropdown-item" href="#">Delete</a>
+                                <a class="dropdown-item delete" href="{{ route('section.destroy', $section) }}">Delete</a>
                             </div>
                         </div>
 
@@ -77,3 +77,34 @@
 
     @endforelse
 @endsection
+
+@push('script')
+ <script>
+   $(document).ready(function () {
+     $('.delete').each(function () {
+       $(this).on('click', e => {
+         e.preventDefault();
+
+         Swal.fire({
+           title: 'Are you sure want to delete this section ?',
+           type: 'warning',
+           showCancelButton: true,
+           confirmButtonColor: '#3085d6',
+           cancelButtonColor: '#d33',
+           confirmButtonText: 'Yes',
+           cancelButtonText: 'No',
+         }).then(result => {
+           if (result.value) {
+             axios({
+               method: 'DELETE',
+               url: $(this).attr('href'),
+             }).then(response => {
+               location.reload();
+             });
+           }
+         });
+       });
+     });
+   });
+ </script>
+@endpush
