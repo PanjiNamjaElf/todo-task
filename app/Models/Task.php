@@ -28,4 +28,14 @@ use Illuminate\Database\Eloquent\Model;
 class Task extends Model
 {
     use HasFactory;
+
+    public function section()
+    {
+        return $this->belongsTo(Section::class)->withDefault(
+            function ($section, $task) {
+                /** @var Section $section */
+                $section->name = 'N/A';
+            }
+        );
+    }
 }

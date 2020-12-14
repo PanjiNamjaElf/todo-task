@@ -28,4 +28,8 @@ use Illuminate\Database\Eloquent\Model;
 class Section extends Model
 {
     use HasFactory;
+
+    public function tasks() {
+        return $this->hasMany(Task::class)->latest();
+    }
 }
