@@ -3,18 +3,22 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Section;
 use Illuminate\Http\Request;
+use App\Http\Resources\Section as SectionResource;
 
 class SectionController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return SectionResource
      */
     public function index()
     {
-        //
+        $section = Section::paginate(10);
+
+        return new SectionResource($section);
     }
 
     /**
