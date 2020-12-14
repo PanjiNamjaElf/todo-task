@@ -52,6 +52,8 @@ jobs:
           php-version: ${{ matrix.php }}
           extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, gd, imagick
           coverage: none
+        env:
+          - ACTIONS_ALLOW_UNSECURE_COMMANDS: true
 
       - name: Setup node.js environment
         uses: actions/setup-node@v1.4.2
