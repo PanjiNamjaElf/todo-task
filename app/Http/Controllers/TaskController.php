@@ -42,12 +42,12 @@ class TaskController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Task  $task
-     * @return \Illuminate\Http\Response
+     * @param  Section  $section
+     * @param  Task  $task
      */
     public function show(Section $section, Task $task)
     {
-        //
+        return view('tasks.show', compact('section', 'task'));
     }
 
     /**
@@ -56,7 +56,7 @@ class TaskController extends Controller
      * @param  \App\Models\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function edit(Task $task)
+    public function edit(Section $section, Task $task)
     {
         //
     }
@@ -68,7 +68,7 @@ class TaskController extends Controller
      * @param  \App\Models\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Task $task)
+    public function update(Request $request, Section $section, Task $task)
     {
         //
     }
@@ -79,7 +79,7 @@ class TaskController extends Controller
      * @param  \App\Models\Task  $task
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Task $task)
+    public function destroy(Section $section, Task $task)
     {
         //
     }
