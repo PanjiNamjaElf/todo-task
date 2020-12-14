@@ -24,12 +24,22 @@ class SectionController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param  Request  $request
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(Request $request)
     {
-        //
+        $section = new Section();
+
+        $section->name = $request->input('name');
+        $section->description = $request->input('description');
+
+        $section->save();
+
+        return response()->json([
+            'code'    => 201,
+            'message' => 'Section created.',
+        ], 201);
     }
 
     /**
