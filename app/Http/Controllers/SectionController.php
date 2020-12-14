@@ -62,24 +62,29 @@ class SectionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Section  $section
-     * @return \Illuminate\Http\Response
+     * @param  Section  $section
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function edit(Section $section)
     {
-        //
+        return view('section.edit', compact('section'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Section  $section
-     * @return \Illuminate\Http\Response
+     * @param  Request  $request
+     * @param  Section  $section
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, Section $section)
     {
-        //
+        $section->name = $request->input('name');
+        $section->description = $request->input('description');
+
+        $section->save();
+
+        return redirect()->route('index');
     }
 
     /**
