@@ -61,7 +61,7 @@
                                     </div>
                                 </li>
                             @empty
-
+                                <h3>No task</h3>
                             @endforelse
                         </ul>
 
