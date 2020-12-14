@@ -47,12 +47,12 @@ jobs:
           key: node-modules-${{ matrix.node }}-${{ hashFiles('package-lock.json') }}
 
       - name: Setup PHP
-          uses: shivammathur/setup-php@v2
-          with:
-            php-version: ${{ matrix.php }}
-            extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, gd, imagick
-            tools: composer:v2
-            coverage: none
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, gd, imagick
+          tools: composer:v2
+          coverage: none
 
       - name: Setup node.js environment
         uses: actions/setup-node@v1.4.2
