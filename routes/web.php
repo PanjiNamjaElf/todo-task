@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\SectionController;
+use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('index');
+Route::get('/', [SectionController::class, 'index'])->name('index');
+
+Route::resource('section', SectionController::class)->except([
+    'index',
+]);
+
+Route::resource('sections.tasks', TaskController::class)->except([
+    'index',
+]);

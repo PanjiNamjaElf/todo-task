@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 /**
  * App\Models\Task
@@ -37,5 +38,12 @@ class Task extends Model
                 $section->name = 'N/A';
             }
         );
+    }
+
+    public function getExcerptAttribute()
+    {
+        $content = strip_tags($this->description);
+
+        return Str::words($content, 10);
     }
 }

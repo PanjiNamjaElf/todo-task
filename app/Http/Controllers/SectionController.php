@@ -10,11 +10,14 @@ class SectionController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index()
     {
-        //
+        $sections = Section::latest()->get();
+
+        return view('index')
+            ->with('sections', $sections);
     }
 
     /**
